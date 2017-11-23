@@ -1,0 +1,42 @@
+{
+  "restRoutes": [],
+  "byDestination": {
+    "login_service": {
+      "host": "http://192.168.1.121:8080",
+      "application": "login-micro-service",
+      "client": {
+        "token": "token1"
+      }
+    },
+    "logout_service": {
+      "host": "http://192.168.1.131:8080",
+      "application": "logout-micro-service",
+      "destinations": ["notification_service", "log_service"],
+      "client": {
+        "token": "token2"
+      }
+    },
+    "notification_service": {
+      "host": "http://192.168.1.141:8080",
+      "application": "notification-micro-service",
+      "destinations": ["sms_service"],
+      "client": {
+        "token": "token3"
+      }
+    },
+    "sms_service": {
+      "host": "http://192.168.1.151:8080",
+      "application": "sms-micro-service",
+      "client": {
+        "token": "token4"
+      }
+    },
+    "log_service": {
+      "host": "http://192.168.1.161:8080",
+      "application": "log-micro-service",
+      "client": {
+        "token": "token5"
+      }
+    }
+  }
+}
