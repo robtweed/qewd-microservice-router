@@ -3,7 +3,7 @@
 var events = require('events');
 var mockRouter = require('./mocks/router');
 var mockJwtHandler = require('./mocks/jwtHandler');
-var microServiceRouter = require('../../lib/microServiceRouter');
+var microServiceRouter = require('../lib/microServiceRouter');
 var handleMicroServiceSpec = require('./shared/handleMicroServiceSpec');
 
 describe('unit/microServiceRouter:', function () {

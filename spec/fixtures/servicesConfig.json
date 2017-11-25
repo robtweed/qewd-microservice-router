@@ -37,6 +37,21 @@
       "client": {
         "token": "token5"
       }
+    },
+    "test_service": {
+      "host": "http://192.168.1.171:8080",
+      "application": "test-micro-service",
+      "destinations": ["service1", "service2"],
+      "client": {
+        "token": "token6"
+      }
+    },
+    "service1": {
+      "host": "http://192.168.1.181:8080",
+      "application": "micro-service-1",
+      "client": {
+        "token": "token7"
+      }
     }
   }
 }

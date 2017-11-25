@@ -1,7 +1,6 @@
 # ewd-microservice-router: MicroService Routing Module for ewd-qoper8
 
-[![Build Status](https://travis-ci.org/killmenot/ewd-microservice-router.svg?branch=master)](https://travis-ci.org/killmenot/ewd-microservice-router)
-[![Coverage Status](https://coveralls.io/repos/github/killmenot/ewd-microservice-router/badge.svg?branch=master)](https://coveralls.io/github/killmenot/ewd-microservice-router?branch=master)
+[![Build Status](https://travis-ci.org/robtweed/ewd-microservice-router.svg?branch=master)](https://travis-ci.org/robtweed/ewd-microservice-router) [![Coverage Status](https://coveralls.io/repos/github/robtweed/ewd-microservice-router/badge.svg?branch=master)](https://coveralls.io/github/robtweed/ewd-microservice-router?branch=master) [![Dependency Status](https://gemnasium.com/badges/github.com/robtweed/ewd-microservice-router.svg)](https://gemnasium.com/github.com/robtweed/ewd-microservice-router)
 
 Rob Tweed <rtweed@mgateway.com>  
 23 November 2017, M/Gateway Developments Ltd [http://www.mgateway.com](http://www.mgateway.com)
@@ -27,6 +26,7 @@ Routing tables will have been set up by QEWD microservices during master process
 
 ## License
 
+```
  Copyright (c) 2017 M/Gateway Developments Ltd,                           
  Reigate, Surrey UK.                                                      
  All rights reserved.                                                     
@@ -46,3 +46,4 @@ Routing tables will have been set up by QEWD microservices during master process
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
   See the License for the specific language governing permissions and      
    limitations under the License.      
+```

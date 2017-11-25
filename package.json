@@ -9,8 +9,8 @@
   },
   "scripts": {
     "lint": "jshint lib spec index.js",
-    "test": "jasmine --config=spec/support/unit.json",
-    "coverage": "nyc --reporter=html --reporter=text jasmine --config=spec/support/unit.json",
+    "test": "jasmine --config=spec/support/jasmine.json",
+    "coverage": "nyc --reporter=html --reporter=text jasmine --config=spec/support/jasmine.json",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
