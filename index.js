@@ -1,7 +1,7 @@
 /*!
 
  ----------------------------------------------------------------------------
- | ewd-microservice-router: MicroService Routing Module for ewd-qoper8      |
+ | qewd-microservice-router: MicroService Routing Module for QEWD           |
  |                                                                          |
  | Copyright (c) 2017 M/Gateway Developments Ltd,                           |
  | Reigate, Surrey UK.                                                      |

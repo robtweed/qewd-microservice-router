@@ -1,7 +1,7 @@
 {
-  "name": "ewd-microservice-router",
+  "name": "qewd-microservice-router",
   "version": "1.0.0",
-  "description": "MicroService Routing Module for ewd-qoper8",
+  "description": "MicroService Routing Module for QEWD",
   "main": "index.js",
   "engines": {
     "node": ">= 4",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robtweed/ewd-microservice-router.git"
+    "url": "git+https://github.com/robtweed/qewd-microservice-router.git"
   },
   "author": "Rob Tweed, M/Gateway Developments Ltd",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/robtweed/ewd-microservice-router/issues"
+    "url": "https://github.com/robtweed/qewd-microservice-router/issues"
   },
-  "homepage": "https://github.com/robtweed/ewd-microservice-router#readme",
+  "homepage": "https://github.com/robtweed/qewd-microservice-router#readme",
   "pre-commit": [
     "lint",
     "test"

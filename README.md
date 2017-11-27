@@ -1,6 +1,6 @@
-# ewd-microservice-router: MicroService Routing Module for ewd-qoper8
+# qewd-microservice-router: MicroService Routing Module for QEWD
 
-[![Build Status](https://travis-ci.org/robtweed/ewd-microservice-router.svg?branch=master)](https://travis-ci.org/robtweed/ewd-microservice-router) [![Coverage Status](https://coveralls.io/repos/github/robtweed/ewd-microservice-router/badge.svg?branch=master)](https://coveralls.io/github/robtweed/ewd-microservice-router?branch=master) [![Dependency Status](https://gemnasium.com/badges/github.com/robtweed/ewd-microservice-router.svg)](https://gemnasium.com/github.com/robtweed/ewd-microservice-router)
+[![Build Status](https://travis-ci.org/robtweed/qewd-microservice-router.svg?branch=master)](https://travis-ci.org/robtweed/qewd-microservice-router) [![Coverage Status](https://coveralls.io/repos/github/robtweed/qewd-microservice-router/badge.svg?branch=master)](https://coveralls.io/github/robtweed/qewd-microservice-router?branch=master) [![Dependency Status](https://gemnasium.com/badges/github.com/robtweed/qewd-microservice-router.svg)](https://gemnasium.com/github.com/robtweed/qewd-microservice-router)
 
 Rob Tweed <rtweed@mgateway.com>  
 23 November 2017, M/Gateway Developments Ltd [http://www.mgateway.com](http://www.mgateway.com)
@@ -12,7 +12,7 @@ Google Group for discussions, support, advice etc: [http://groups.google.co.uk/g
 Thanks to Ward De Backer for assistance with bug tracking, fixing and functionality suggestions
 
 
-## ewd-microservice-router
+## qewd-microservice-router
 
 MicroService Routing Module
 
@@ -21,7 +21,7 @@ Routing tables will have been set up by QEWD microservices during master process
 
 ## Installing
 
-    npm install ewd-microservice-router
+    npm install qewd-microservice-router
 
 
 ## License
