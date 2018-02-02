@@ -1,6 +1,6 @@
 {
   "name": "qewd-microservice-router",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MicroService Routing Module for QEWD",
   "main": "index.js",
   "engines": {
@@ -41,11 +41,11 @@
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "jasmine": "^2.8.0",
+    "jasmine": "^2.9.0",
     "jasmine-spec-reporter": "^4.1.1",
     "jasmine-spy-matchers": "^1.2.0",
     "jshint": "^2.9.5",
-    "nyc": "^11.2.1",
+    "nyc": "^11.4.1",
     "pre-commit": "^1.2.2"
   }
 }
