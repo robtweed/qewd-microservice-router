@@ -1,9 +1,10 @@
 'use strict';
 
 var events = require('events');
+var rewire = require('rewire');
 var mockRouter = require('./mocks/router');
 var mockJwtHandler = require('./mocks/jwtHandler');
-var microServiceRouter = require('../lib/microServiceRouter');
+var microServiceRouter = rewire('../lib/microServiceRouter');
 var handleMicroServiceSpec = require('./shared/handleMicroServiceSpec');
 
 describe('unit/microServiceRouter:', function () {
@@ -42,6 +43,8 @@ describe('unit/microServiceRouter:', function () {
       q.u_services.byDestination[destination].client.send = jasmine.createSpy();
     });
     /*jshint camelcase: true */
+
+    microServiceRouter.__set__('requestId', 0);
   });
 
   beforeEach(function () {

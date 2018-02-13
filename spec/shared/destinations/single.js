@@ -62,7 +62,10 @@ module.exports = function (boot) {
           ips: ['client'],
           token: 'updated-jwt-token',
           args: {},
-          jwt: true
+          jwt: true,
+          /*jshint camelcase: false */
+          ms_requestId: 1
+          /*jshint camelcase: true */
         }, jasmine.any(Function));
       });
 
@@ -140,7 +143,10 @@ module.exports = function (boot) {
           ips: ['client'],
           token: 'updated-jwt-token',
           args: {},
-          jwt: true
+          jwt: true,
+          /*jshint camelcase: false */
+          ms_requestId: 1
+          /*jshint camelcase: true */
         }, jasmine.any(Function));
       });
 
@@ -218,7 +224,10 @@ module.exports = function (boot) {
           ips: ['client'],
           token: 'updated-jwt-token',
           args: {},
-          jwt: true
+          jwt: true,
+          /*jshint camelcase: false */
+          ms_requestId: 1
+          /*jshint camelcase: true */
         }, jasmine.any(Function));
       });
 
@@ -326,7 +335,10 @@ module.exports = function (boot) {
           ips: ['client'],
           token: 'updated-jwt-token',
           args: {},
-          jwt: true
+          jwt: true,
+          /*jshint camelcase: false */
+          ms_requestId: 1
+          /*jshint camelcase: true */
         }, jasmine.any(Function));
       });
 
