@@ -42,6 +42,25 @@ module.exports = function (boot, route, type) {
       destinationsSpec.whenNoTokenReturned();
     });
 
+    describe('And getRestJWT returns undefined string value', function () {
+      beforeEach(function () {
+        q.jwt.handlers.getRestJWT.and.returnValue('undefined');
+      });
+
+      destinationsSpec.whenTokenHasValueUndefined();
+    });
+
+    describe('And JWT check being bypassed', function () {
+      beforeEach(function () {
+        q.router.hasRoute.and.returnValue(Object.assign({
+          bypassJWTCheck: true
+        }, route));
+        q.jwt.handlers.getRestJWT.and.returnValue('jwt-token');
+      });
+
+      destinationsSpec.whenRouteByPassJwtCheckEnabled();
+    });
+
     describe('And getRestJWT returns non empty token', function () {
       beforeEach(function () {
         q.jwt.handlers.getRestJWT.and.returnValue('jwt-token');
