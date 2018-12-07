@@ -1,6 +1,6 @@
 {
   "name": "qewd-microservice-router",
-  "version": "1.2.0",
+  "version": "1.2.11",
   "description": "MicroService Routing Module for QEWD",
   "main": "index.js",
   "engines": {
