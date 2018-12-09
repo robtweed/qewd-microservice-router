@@ -3,7 +3,7 @@
  ----------------------------------------------------------------------------
  | qewd-microservice-router: MicroService Routing Module for QEWD           |
  |                                                                          |
- | Copyright (c) 2017 M/Gateway Developments Ltd,                           |
+ | Copyright (c) 2016-2018 M/Gateway Developments Ltd,                      |
  | Reigate, Surrey UK.                                                      |
  | All rights reserved.                                                     |
  |                                                                          |
