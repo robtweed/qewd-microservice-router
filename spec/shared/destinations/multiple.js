@@ -41,7 +41,7 @@ module.exports = function (boot) {
       it('should call microservice client #send 2 times with correct arguments', function () {
         q.microServiceRouter(messageObj, handleResponse);
 
-        destinations.forEach(function (destination) {
+        destinations.forEach(function (destination, index) {
           /*jshint camelcase: false */
           var microService = q.u_services.byDestination[destination];
           /*jshint camelcase: true */
@@ -69,7 +69,10 @@ module.exports = function (boot) {
             ips: ['client'],
             token: 'updated-jwt-token',
             args: {},
-            jwt: true
+            jwt: true,
+            /*jshint camelcase: false */
+            ms_requestId: index + 1
+            /*jshint camelcase: true */
           }, jasmine.any(Function));
         });
       });
@@ -150,7 +153,7 @@ module.exports = function (boot) {
       it('should call microservice client #send 2 times with correct arguments', function () {
         q.microServiceRouter(messageObj, handleResponse);
 
-        destinations.forEach(function (destination) {
+        destinations.forEach(function (destination, index) {
           /*jshint camelcase: false */
           var microService = q.u_services.byDestination[destination];
           /*jshint camelcase: true */
@@ -178,7 +181,10 @@ module.exports = function (boot) {
             ips: ['client'],
             token: 'updated-jwt-token',
             args: {},
-            jwt: true
+            jwt: true,
+            /*jshint camelcase: false */
+            ms_requestId: index + 1
+            /*jshint camelcase: true */
           }, jasmine.any(Function));
         });
       });
@@ -259,7 +265,7 @@ module.exports = function (boot) {
       it('should call microservice client #send 2 times with correct arguments', function () {
         q.microServiceRouter(messageObj, handleResponse);
 
-        destinations.forEach(function (destination) {
+        destinations.forEach(function (destination, index) {
           /*jshint camelcase: false */
           var microService = q.u_services.byDestination[destination];
           /*jshint camelcase: true */
@@ -287,7 +293,10 @@ module.exports = function (boot) {
             ips: ['client'],
             token: 'updated-jwt-token',
             args: {},
-            jwt: true
+            jwt: true,
+            /*jshint camelcase: false */
+            ms_requestId: index + 1
+            /*jshint camelcase: true */
           }, jasmine.any(Function));
         });
       });
@@ -399,7 +408,7 @@ module.exports = function (boot) {
       it('should call microservice client #send 2 times with correct arguments', function () {
         q.microServiceRouter(messageObj, handleResponse);
 
-        destinations.forEach(function (destination) {
+        destinations.forEach(function (destination, index) {
           /*jshint camelcase: false */
           var microService = q.u_services.byDestination[destination];
           /*jshint camelcase: true */
@@ -427,7 +436,10 @@ module.exports = function (boot) {
             ips: ['client'],
             token: 'updated-jwt-token',
             args: {},
-            jwt: true
+            jwt: true,
+            /*jshint camelcase: false */
+            ms_requestId: index + 1
+            /*jshint camelcase: true */
           }, jasmine.any(Function));
         });
       });

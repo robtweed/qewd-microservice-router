@@ -1,9 +1,10 @@
 'use strict';
 
 var events = require('events');
+var rewire = require('rewire');
 var mockRouter = require('./mocks/router');
 var mockJwtHandler = require('./mocks/jwtHandler');
-var microServiceRouter = require('../lib/microServiceRouter');
+var microServiceRouter = rewire('../lib/microServiceRouter');
 var handleMicroServiceSpec = require('./shared/handleMicroServiceSpec');
 
 describe('unit/microServiceRouter:', function () {
@@ -42,6 +43,8 @@ describe('unit/microServiceRouter:', function () {
       q.u_services.byDestination[destination].client.send = jasmine.createSpy();
     });
     /*jshint camelcase: true */
+
+    microServiceRouter.__set__('requestId', 0);
   });
 
   beforeEach(function () {
@@ -71,6 +74,20 @@ describe('unit/microServiceRouter:', function () {
   afterEach(function () {
     q.removeAllListeners();
     q = null;
+  });
+
+  it('should set authorization header', function () {
+    delete messageObj.headers;
+    messageObj.jwt = 'jwt-token';
+
+    q.router.hasRoute.and.returnValue({});
+
+    q.microServiceRouter(messageObj, handleResponse);
+
+    expect(messageObj.headers).toEqual({
+      authorization: 'Bearer jwt-token'
+    });
+    expect(messageObj.jwt).toBeUndefined();
   });
 
   it('should call #router.hasRoute with correct arguments', function () {
@@ -103,16 +120,22 @@ describe('unit/microServiceRouter:', function () {
         onRequest = jasmine.createSpy();
 
         q.jwt.handlers.getRestJWT.and.returnValue('jwt-token');
-        q.router.hasRoute.and.returnValue({
-          matched: true,
-          args: {
-            foo: 'bar',
-            bar: 'baz'
-          },
-          destination: 'login_service',
-          pathTemplate: '/path/template',
-          onRequest: onRequest
-        });
+        q.router.hasRoute.and.returnValues(
+          {
+            matched: true,
+            args: {
+              foo: 'bar',
+              bar: 'baz'
+            },
+            destination: 'login_service',
+            pathTemplate: '/path/template',
+            onRequest: onRequest
+          }, {
+            matched: true,
+            args: {},
+            destination: 'non_existing_service'
+          }
+        );
       });
 
       it('should call getRestJWT with correct arguments', function () {
@@ -149,10 +172,96 @@ describe('unit/microServiceRouter:', function () {
           jwt: 'jwt-token'
         };
 
+        q.microServiceRouter(messageObj, handleResponse);
+
+        expect(onRequest).toHaveBeenCalledWithContext(q, expectedArgs, jasmine.any(Function), handleResponse);
+      });
+
+      it('should return true and stop processing when status is not false', function () {
         var actual = q.microServiceRouter(messageObj, handleResponse);
 
         expect(actual).toBeTruthy();
-        expect(onRequest).toHaveBeenCalledWithContext(q, expectedArgs, jasmine.any(Function), handleResponse);
+      });
+
+      it('should continue processing when status is false', function () {
+        var route = {
+          matched: true,
+          args: {},
+          destination: 'non_existing_service'
+        };
+
+        q.router.hasRoute.and.returnValue(route);
+
+        onRequest.and.returnValue(false);
+
+        q.microServiceRouter(messageObj, handleResponse);
+
+        expect(handleResponse).toHaveBeenCalledWith({
+          message: {
+            error: 'No such destination: non_existing_service'
+          }
+        });
+      });
+
+      describe('And when send function called', function () {
+        var messageObj2;
+        var args2;
+        var handleResponse2;
+
+        beforeEach(function () {
+          messageObj2 = {
+            path: '/api/orders',
+            method: 'GET'
+          };
+          args2 = {
+            jwt: 'another-jwt-token'
+          };
+          handleResponse2 = jasmine.createSpy();
+        });
+
+        it('should call microServiceRouter with another message object', function () {
+          onRequest.and.callFake(function (args, send) {
+            send(messageObj2, args2, handleResponse2);
+            return false;
+          });
+
+          q.microServiceRouter(messageObj, handleResponse);
+
+          // check microServiceRouter calls
+          expect(q.router.hasRoute).toHaveBeenCalledTimes(2);
+          expect(q.router.hasRoute.calls.argsFor(0)[0]).toEqual('/api/users', 'POST', []);
+          expect(q.router.hasRoute.calls.argsFor(1)[0]).toEqual('/api/orders', 'GET', []);
+
+          expect(messageObj2.headers).toEqual({
+            authorization: 'Bearer another-jwt-token'
+          });
+          expect(handleResponse2).toHaveBeenCalledWith({
+            message: {
+              error: 'No such destination: non_existing_service'
+            }
+          });
+        });
+
+        it('should call microServiceRouter with another message object when no args passed', function () {
+          onRequest.and.callFake(function (args, send) {
+            send(messageObj2, handleResponse2);
+            return false;
+          });
+
+          q.microServiceRouter(messageObj, handleResponse);
+
+          // check microServiceRouter calls
+          expect(q.router.hasRoute).toHaveBeenCalledTimes(2);
+          expect(q.router.hasRoute.calls.argsFor(0)[0]).toEqual('/api/users', 'POST', []);
+          expect(q.router.hasRoute.calls.argsFor(1)[0]).toEqual('/api/orders', 'GET', []);
+
+          expect(messageObj2.headers).toBeUndefined();
+          expect(handleResponse2).toHaveBeenCalledWith({
+            message: {
+              error: 'No such destination: non_existing_service'
+            }
+          });
+        });
       });
     });
 
