@@ -4,7 +4,7 @@
   "description": "MicroService Routing Module for QEWD",
   "main": "index.js",
   "engines": {
-    "node": ">= 4",
+    "node": ">= 6",
     "npm": ">= 2.15"
   },
   "scripts": {

@@ -1,6 +1,6 @@
 # qewd-microservice-router: MicroService Routing Module for QEWD
 
-[![Build Status](https://travis-ci.org/robtweed/qewd-microservice-router.svg?branch=master)](https://travis-ci.org/robtweed/qewd-microservice-router) [![Coverage Status](https://coveralls.io/repos/github/robtweed/qewd-microservice-router/badge.svg?branch=master)](https://coveralls.io/github/robtweed/qewd-microservice-router?branch=master) [![Dependency Status](https://gemnasium.com/badges/github.com/robtweed/qewd-microservice-router.svg)](https://gemnasium.com/github.com/robtweed/qewd-microservice-router)
+[![Build Status](https://travis-ci.org/robtweed/qewd-microservice-router.svg?branch=master)](https://travis-ci.org/robtweed/qewd-microservice-router) [![Coverage Status](https://coveralls.io/repos/github/robtweed/qewd-microservice-router/badge.svg?branch=master)](https://coveralls.io/github/robtweed/qewd-microservice-router?branch=master) [![Dependency Status](https://david-dm.org/robtweed/qewd-microservice-router.svg)](https://david-dm.org/robtweed/qewd-microservice-router) [![npm version](https://img.shields.io/npm/v/qewd-microservice-router.svg)](https://www.npmjs.com/package/qewd-microservice-router)
 
 Rob Tweed <rtweed@mgateway.com>  
 23 November 2017, M/Gateway Developments Ltd [http://www.mgateway.com](http://www.mgateway.com)
@@ -27,7 +27,7 @@ Routing tables will have been set up by QEWD microservices during master process
 ## License
 
 ```
- Copyright (c) 2017 M/Gateway Developments Ltd,                           
+ Copyright (c) 2016-2018 M/Gateway Developments Ltd,                           
  Reigate, Surrey UK.                                                      
  All rights reserved.                                                     
                                                                            
